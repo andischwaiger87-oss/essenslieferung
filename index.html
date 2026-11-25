@@ -242,7 +242,7 @@ PLAN.forEach((w,wk)=>Object.keys(ROUTES).forEach(r=>{let plate=w[r][0][2];
 segs.find(s=>s.id==='4F1').cands.push('Tina Pletzenauer'); // Beispiel-Meldung
 const people=[...new Set(segs.map(s=>s.who).filter(Boolean))].sort((a,b)=>a.localeCompare(b,'de'));
 
-const S={me:'Toni Hechenbichler',view:'heute',wk:3};
+const S={me:'Robert Schwaiger',view:'heute',wk:3};
 const isCoord=()=>S.me===COORD;
 
 /* ---------- Hilfen ---------- */
@@ -376,7 +376,7 @@ function render(focus){
   const n=openSegs().length, tabs=[['heute','Heute'],['plan','Plan'],['offen','Offen'],['ich',isCoord()?'Team':'Meine']];
   nav.innerHTML=S.view==='wer'?'':tabs.map(t=>'<button data-a="go" data-v="'+t[0]+'"'+(S.view===t[0]?' aria-current="page"':'')+'><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'+IC[t[0]]+'</svg>'+t[1]
     +(t[0]==='offen'&&n?'<span class="badge" aria-label="'+n+' offen">'+n+'</span>':'')+'</button>').join('');
-  demoRow.innerHTML='<button data-a="pick" data-n="Toni Hechenbichler" aria-pressed="'+(S.me!==COORD&&S.view!=='wer')+'">Fahrer'+(S.me!==COORD?' ('+esc(first(S.me))+')':'')+'</button>'
+  demoRow.innerHTML='<button data-a="pick" data-n="Robert Schwaiger" aria-pressed="'+(S.me!==COORD&&S.view!=='wer')+'">Fahrer'+(S.me!==COORD?' ('+esc(first(S.me))+')':'')+'</button>'
    +'<button data-a="pick" data-n="'+COORD+'" aria-pressed="'+(isCoord()&&S.view!=='wer')+'">Peggy</button><button data-a="who" aria-pressed="'+(S.view==='wer')+'">Andere</button>';
   if(focus){window.scrollTo(0,0);main.style.animation='none';main.offsetWidth;main.style.animation='';main.focus({preventScroll:true});}
   segs.forEach(s=>s.fresh=false);}
